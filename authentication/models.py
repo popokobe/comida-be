@@ -57,7 +57,7 @@ class Account(AbstractBaseUser):
 
     objects = AccountManager()
 
-    USER_FIELD = 'email'
+    USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
     def user_has_perm(user, perm, obj):

@@ -72,6 +72,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'comida_be.wsgi.application'
 
+AUTH_USER_MODEL = 'authentication.Account'
+
 JWT_AUTH = {
     'JWT_VERIFY_EXPIRATION': False,
     'JWT_AUTH_HEADER_PREFIX': 'JWT',
@@ -122,9 +124,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ja'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
