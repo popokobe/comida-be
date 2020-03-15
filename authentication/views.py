@@ -23,3 +23,18 @@ class AuthRegister(generics.CreateAPIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class AuthAccountInfo(generics.RetrieveAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
+    queryset = Account.objects.all()
+    serializer_class = AccountSerializer
+
+    def get(self, request, format=None):
+        return Response(data={
+            'username': request.user.username,
+            'email': request.user.email,
+            'profile': request.user.profile,
+        },
+            status=status.HTTP_200_OK
+        )
