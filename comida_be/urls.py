@@ -8,7 +8,7 @@ from rest_framework.documentation import include_docs_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('authentication.urls')),
-    # path('api/v0/', include('apiv0.urls'))
+    path('api/v0/', include('apiv0.urls')),
 ]
 
 if settings.DEBUG:
