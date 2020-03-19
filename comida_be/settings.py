@@ -37,12 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 追加
+    'corsheaders',
     'apiv0',
     'authentication',
     'rest_framework'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -81,7 +84,7 @@ JWT_AUTH = {
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     ),
     # 'DEFAULT_AUTHENTICATION_CLASSES': (
     #     'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
@@ -140,3 +143,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# 許可するオリジン
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+]
+# レスポンスを公開する
+CORS_ALLOW_CREDENTIALS = True
