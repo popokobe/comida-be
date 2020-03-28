@@ -1,6 +1,6 @@
+from django.conf import settings
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-
 
 class Post(models.Model):
     CATEGORY_CHOICES = [
@@ -21,7 +21,8 @@ class Post(models.Model):
         ('SWEETS', 'スイーツ'),
         ('OTHER', 'その他'),
     ]
-
+    
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=50)
