@@ -148,6 +148,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploaded_media')
+MEDIA_URL = '/media/'
+
 # 許可するオリジン
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',

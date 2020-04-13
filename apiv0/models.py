@@ -25,6 +25,7 @@ class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    img =models.ImageField("Uploaded image", null=True)
     name = models.CharField(max_length=50)
     area = models.CharField(max_length=50)
     address = models.CharField(max_length=50, blank=True)

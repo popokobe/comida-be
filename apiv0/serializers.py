@@ -11,7 +11,7 @@ class PostSerializer(serializers.ModelSerializer):
     author_id = serializers.PrimaryKeyRelatedField(queryset=Account.objects.all(), write_only=True)
     class Meta:
         model = Post
-        fields = ['author', 'author_id', 'created_at', 'updated_at', 'name', 'area', 'address', 'dish', 'category', 'expense', 'note', 'rating']
+        fields = ['author', 'author_id', 'created_at', 'updated_at', 'img', 'name', 'area', 'address', 'dish', 'category', 'expense', 'note', 'rating']
         read_only_fields = ['created_at', 'updated_at']
 
     def create(self, validated_data):
