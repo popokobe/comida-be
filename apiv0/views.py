@@ -8,6 +8,5 @@ class PostView(viewsets.ModelViewSet):
     # permission_classes = (permissions.IsAuthenticated,)
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    filter_fields = '__all__'
 
 
