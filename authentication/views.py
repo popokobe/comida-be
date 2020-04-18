@@ -32,9 +32,9 @@ class AuthAccountInfo(generics.RetrieveAPIView):
 
     def get(self, request, format=None):
         return Response(data={
+            'id': request.user.id,
             'username': request.user.username,
             'email': request.user.email,
-            'profile': request.user.profile,
         },
             status=status.HTTP_200_OK
         )

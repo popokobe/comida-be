@@ -9,7 +9,6 @@ from authentication.models import Account
 class PostSerializer(serializers.ModelSerializer):
     author = AccountSerializer(read_only=True)
     author_id = serializers.PrimaryKeyRelatedField(queryset=Account.objects.all(), write_only=True)
-    category = serializers.CharField(source='get_category_display')
     class Meta:
         model = Post
         fields = ['author', 'author_id', 'created_at', 'updated_at', 'img', 'name', 'area', 'address', 'dish', 'category', 'expense', 'note', 'rating']
