@@ -9,5 +9,5 @@ class PostView(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
-    filter_backends = [SearchFilter]
-    search_fields = ['author__id']
+    def get_queryset(self):
+        return self.queryset.filter(author=self.request.user.id)

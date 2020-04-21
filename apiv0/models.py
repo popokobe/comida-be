@@ -21,7 +21,6 @@ class Post(models.Model):
         ('SWEETS', 'スイーツ'),
         ('OTHER', 'その他'),
     ]
-    editable = models.BooleanField(default=False)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
