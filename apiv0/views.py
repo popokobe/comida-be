@@ -5,7 +5,7 @@ from .models import Post
 from .serializers import PostSerializer
 
 class PostView(viewsets.ModelViewSet):
-    # permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated,)
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
